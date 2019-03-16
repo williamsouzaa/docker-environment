@@ -1,0 +1,60 @@
+version: "3"
+
+networks:
+  backend:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.10.0.0/16
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=db_project
+    networks:
+      backend:
+        ipv4_address: 192.10.1.1
+
+  mysql:
+    image: mysql:5.6
+    container_name: mySql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=db_project
+      - MYSQL_ROOT_PASSWORD=123456
+    networks:
+      backend:
+        ipv4_address: 192.10.1.2
+
+  mongo:
+    image: mongo
+    container_name: mongoDB
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    networks:
+      backend:
+        ipv4_address: 192.10.1.3
+
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    container_name: redis
+    networks:
+      backend:
+        ipv4_address: 192.10.1.4
