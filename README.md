@@ -8,8 +8,6 @@
   - IP: 192.10.1.3
 - Redis
   - IP: 192.10.1.4
-- PhpMyAdmin
-  - http://localhost:9090/
 
 
 ## Run
