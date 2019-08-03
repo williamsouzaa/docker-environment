@@ -58,16 +58,3 @@ services:
     networks:
       backend:
         ipv4_address: 192.10.1.4
-        
-   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - 9090:80
-    networks:
-      backend:
-        ipv4_address: 192.10.1.5
-    environment:
-      - PMA_HOST=192.10.1.2
-      - PMA_PORT=3306
-      - PMA_USER=root
-      - PMA_PASSWORD=123456
