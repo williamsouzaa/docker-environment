@@ -39,7 +39,7 @@ services:
 
   mongo:
     image: mongo
-    container_name: mongoDB
+    container_name: mongo
     restart: always
     ports:
       - 27017:27017
@@ -58,3 +58,13 @@ services:
     networks:
       backend:
         ipv4_address: 192.10.1.4
+  
+  rabbitmq:
+    build: ./docker/rabbitmq
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - 8080:15672
+    networks:
+      backend:
+        ipv4_address: 192.10.1.5
