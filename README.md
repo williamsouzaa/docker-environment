@@ -14,11 +14,24 @@
   - IP: 192.10.1.6
 
 
-## Run
+# Softwares
+
+- Spark
+  - IP: 192.10.1.7
+
+
+## Install
+
 
 ```sh
 $ git clone https://github.com/williamsouzaa/my-databases-docker.git
 $ cd my-databases-docker
 $ docker compose up -d
 $ docker compose ps
+```
+
+## Execute pyspark
+
+```bash
+docker exec -t pyspark spark-submit /home/Projects/{file}
 ```

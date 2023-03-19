@@ -82,3 +82,13 @@ services:
     networks:
       backend:
         ipv4_address: 192.10.1.6
+
+  spark:
+    build: ./docker/spark
+    container_name: pyspark
+    restart: always
+    volumes:
+      - /home/$USER/Projects:/home/Projects
+    networks:
+      backend:
+        ipv4_address: 192.10.1.7
